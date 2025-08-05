@@ -1,7 +1,15 @@
 
+// Open-Meteo API endpoint.
 const API_URL = "https://api.open-meteo.com/v1/forecast";
 
+/**
+ * Fetches weather data for a given location.
+ * @param {number} latitude
+ * @param {number} longitude
+ * @returns {Promise<object>} The weather data.
+ */
 export const getWeatherData = async (latitude, longitude) => {
+  // API parameters for current and daily weather.
   const params = new URLSearchParams({
     latitude,
     longitude,
@@ -19,6 +27,6 @@ export const getWeatherData = async (latitude, longitude) => {
     return await response.json();
   } catch (error) {
     console.error("Error fetching weather data:", error);
-    throw error;
+    throw error; // Propagate error to the caller.
   }
 };

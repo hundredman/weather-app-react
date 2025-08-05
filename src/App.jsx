@@ -5,10 +5,13 @@ import Forecast from './components/Forecast';
 import './App.css';
 
 function App() {
+  // State for weather data and errors.
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
 
+  // Fetch weather data on component mount.
   useEffect(() => {
+    // Fetches weather data from the API.
     const fetchWeather = (latitude, longitude) => {
       getWeatherData(latitude, longitude)
         .then(data => {
@@ -20,27 +23,29 @@ function App() {
         });
     };
 
+    // Get user's location, then fetch weather.
     const getLocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
+          // On success, fetch weather for the location.
           (position) => {
             fetchWeather(position.coords.latitude, position.coords.longitude);
           },
+          // On failure, use a default location (Seoul).
           (err) => {
-            // Default to Seoul if geolocation fails
-            fetchWeather(37.5665, 126.9780);
+            fetchWeather(37.5665, 126.9780); // Default to Seoul
             console.warn(`Geolocation failed: ${err.message}. Defaulting to Seoul.`);
           }
         );
       } else {
-        // Default to Seoul if geolocation is not supported
-        fetchWeather(37.5665, 126.9780);
+        // Geolocation not supported, so default to Seoul.
+        fetchWeather(37.5665, 126.9780); // Default to Seoul
         console.warn('Geolocation is not supported by this browser. Defaulting to Seoul.');
       }
     };
 
     getLocation();
-  }, []);
+  }, []); // Runs only once on mount.
 
   return (
     <div className="App">
