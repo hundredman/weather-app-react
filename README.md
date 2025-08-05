@@ -8,13 +8,12 @@ This is a simple weather forecast application built with React and Vite, using t
 - Shows a 7-day weather forecast.
 - **Location Search**: Allows users to search for weather in specific cities using Nominatim API.
 - Defaults to Seoul, South Korea if geolocation is unavailable or denied.
-- **Responsive Design**: Optimized for various screen sizes (mobile, tablet, desktop).
 
 ## Tech Stack
 
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
-- [Open-Meteo API](https://open-meteo.com/)
+- **API**: [Open-Meteo Weather API](https://open-meteo.com/), [Nominatim API](https://nominatim.openstreetmap.org/)
 
 ## Getting Started
 
