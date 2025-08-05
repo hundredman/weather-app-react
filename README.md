@@ -6,7 +6,9 @@ This is a simple weather forecast application built with React and Vite, using t
 
 - Displays the current weather conditions based on the user's geolocation.
 - Shows a 7-day weather forecast.
+- **Location Search**: Allows users to search for weather in specific cities using Nominatim API.
 - Defaults to Seoul, South Korea if geolocation is unavailable or denied.
+- **Responsive Design**: Optimized for various screen sizes (mobile, tablet, desktop).
 
 ## Tech Stack
 
@@ -52,9 +54,11 @@ This will start the application on `http://localhost:5173`.
 /src
 |-- /components
 |   |-- Weather.jsx     # Component to display current weather
-|   `-- Forecast.jsx    # Component to display the 7-day forecast
+|   |-- Forecast.jsx    # Component to display the 7-day forecast
+|   `-- LocationSearch.jsx # Component for searching locations
 |-- /services
-|   `-- weatherService.js # Fetches data from the Open-Meteo API
+|   |-- weatherService.js # Fetches data from the Open-Meteo API
+|   `-- locationService.js # Fetches location data from Nominatim API
 |-- /utils
 |   `-- weatherUtils.js # Utility functions for weather data (e.g., icons)
 |-- App.css             # Main stylesheet
