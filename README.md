@@ -29,7 +29,7 @@ This is a simple weather forecast application built with React and Vite, using t
    ```
 2. Navigate to the project directory:
    ```sh
-   cd weather-forecast-v2.1
+   cd weather-forecast-v2
    ```
 3. Install the dependencies:
    ```sh
